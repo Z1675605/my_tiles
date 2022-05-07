@@ -105,6 +105,15 @@
                 'tileSize': 256,
                 'attribution': 'Map tiles designed by Baldemar'
             });
+            
+            map.addSource('Basic-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'assets/Basic/{z}/{x}/{y}.png'
+                ],
+                'tileSize': 256,
+                'attribution': 'Map tiles designed by Baldemar'
+            });
 
             map.addLayer({
                 'id': 'Outdoors',
@@ -123,6 +132,15 @@
                 },
                 'source': 'Aid-and-Accessibility-tiles'
             });
+            
+            map.addLayer({
+                'id': 'Basic',
+                'type': 'raster',
+                'layout': {
+                    'visibility': 'none'
+                },
+                'source': 'Basic-tiles'
+            });
 
         });
 
@@ -130,12 +148,12 @@
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('Outdoors') || !map.getLayer('Aid and Accessibility')) {
+            if (!map.getLayer('Outdoors') || !map.getLayer('Aid and Accessibility')) || !map.getLayer('Basic')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['Outdoors', 'Aid and Accessibility'];
+            const toggleableLayerIds = ['Outdoors', 'Aid and Accessibility', 'Basic'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
