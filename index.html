@@ -20,7 +20,6 @@
             width: 100%;
         }
 
-        /* the style of the layer control menu */
         #menu {
             background: #fff;
             position: absolute;
@@ -33,7 +32,6 @@
             font-family: 'Open Sans', sans-serif;
         }
 
-        /* each layer on the menu */
         #menu a {
             font-size: 13px;
             color: #404040;
@@ -46,12 +44,10 @@
             text-align: center;
         }
 
-        /* the last item of the layer items will not include a seperator */
         #menu a:last-child {
             border: none;
         }
 
-        /* change color and background color while a pointer is on an hybrid link. */
         #menu a:hover {
             background-color: #f8f8f8;
             color: #404040;
@@ -86,7 +82,7 @@
 
 
 
-        map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
+        map.on('load', () => {
 
             map.addSource('Outdoors-tiles', {
                 'type': 'raster',
@@ -94,7 +90,7 @@
                     'assets/Outdoors/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
-                'attribution': 'Map tiles designed by Baldemar</a>'
+                'attribution': 'Map tiles designed by Baldemar using Mapbox</a>'
             });
 
             map.addSource('Aid-and-Accessibility-tiles', {
@@ -103,7 +99,7 @@
                     'assets/Aid and Accessibility/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
-                'attribution': 'Map tiles designed by Baldemar'
+                'attribution': 'Map tiles designed by Baldemar using Mapbox'
             });
             
             map.addSource('Basic-tiles', {
@@ -112,7 +108,7 @@
                     'assets/Basic/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
-                'attribution': 'Map tiles designed by Baldemar'
+                'attribution': 'Map tiles designed by Baldemar using Mapbox'
             });
 
             map.addLayer({
@@ -145,9 +141,7 @@
         });
 
 
-        // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
-            // If these two layers were not added to the map, abort
             if (!map.getLayer('Outdoors') || !map.getLayer('Aid and Accessibility')) || !map.getLayer('Basic')) {
                 return;
             }
