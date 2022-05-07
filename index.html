@@ -88,10 +88,10 @@
 
         map.on('load', () => { //simplifying the function statement: arrow with brackets to define a function
 
-            map.addSource('Outdoor-tiles', {
+            map.addSource('Outdoors-tiles', {
                 'type': 'raster',
                 'tiles': [
-                    'assets/Outdoor/{z}/{x}/{y}.png'
+                    'assets/Outdoors/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
                 'attribution': 'Map tiles designed by Baldemar</a>'
@@ -107,12 +107,12 @@
             });
 
             map.addLayer({
-                'id': 'Outdoor',
+                'id': 'Outdoors',
                 'type': 'raster',
                 'layout': {
                     'visibility': 'none'
                 },
-                'source': 'Outdoor-tiles'
+                'source': 'Outdoors-tiles'
             });
 
             map.addLayer({
