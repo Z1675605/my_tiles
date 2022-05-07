@@ -142,12 +142,12 @@
 
 
         map.on('idle', () => {
-            if (!map.getLayer('Outdoors') || !map.getLayer('Aid and Accessibility')) || !map.getLayer('Basic')) {
+            if (!map.getLayer('Outdoors') || !map.getLayer('Aid and Accessibility')) || {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['Outdoors', 'Aid and Accessibility', 'Basic'];
+            const toggleableLayerIds = ['Outdoors', 'Aid and Accessibility'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
